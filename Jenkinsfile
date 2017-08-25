@@ -13,13 +13,17 @@ pipeline {
             deleteDir() /* clean up our workspace */
         }
         success {
-            echo 'I succeeeded!'
+        mail to: 'jan.niemietz@traveltainment.de',
+             subject: "Pipeline succeeded: ${currentBuild.fullDisplayName}",
+             body: "${env.BUILD_URL} kicked butt!"
         }
         unstable {
             echo 'I am unstable :/'
         }
         failure {
-            echo 'I failed :('
+        mail to: 'jan.niemietz@traveltainment.de',
+             subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
+             body: "Something is wrong with ${env.BUILD_URL}"
         }
         changed {
             echo 'Things were different before...'
