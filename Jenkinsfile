@@ -116,6 +116,7 @@ stage('Deploy: Fugue Run and Update') {
     }
   }
 }
+    }
 
 def debug() {
   echo(env.BRANCH_NAME)
@@ -136,5 +137,5 @@ def run_dry_run() {
     sh('fugue run compositions/CreateDeveloperEnvironment.lw --dry-run')
   }
 }
-    }
+    
 }
