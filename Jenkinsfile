@@ -1,17 +1,24 @@
-node {
-   // Mark the code checkout 'stage'....
-   stage 'Checkout'
+pipeline {
+    agent any
 
-   // Checkout code from repository
-   checkout scm
-
-   // Get the maven tool.
-   // ** NOTE: This 'M3' maven tool must be configured
-   // **       in the global configuration.
-   def mvnHome = tool 'M3'
-
-   // Mark the code build 'stage'....
-   stage 'Build'
-   // Run the maven build
-   sh "${mvnHome}/bin/mvn clean install"
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building..'
+               def username = 'Jenkins'
+               echo "I said, Hello Mr. ${username}"
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+               echo "I said, Hello Mr. ${username}"
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
+            }
+        }
+    }
 }
