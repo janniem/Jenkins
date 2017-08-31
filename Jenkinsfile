@@ -6,13 +6,13 @@ pipeline {
             steps {
                 echo 'Building..'
                      
-               echo "I said, Hello Mr. ${username}"
+               echo "I said, Hello Mr."
             }
         }
         stage('Test') {
             steps {
                 echo 'Testing..'
-               echo "I said, Hello Mr. ${username}"
+               echo "I said, Hello Mr."
             }
         }
                 stage('Example') {
